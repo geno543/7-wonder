@@ -1,0 +1,8 @@
+Add wonder images here with the following names:
+- great-wall.jpg
+- petra.jpg
+- christ-redeemer.jpg
+- machu-picchu.jpg
+- chichen-itza.jpg
+- colosseum.jpg
+- taj-mahal.jpg
