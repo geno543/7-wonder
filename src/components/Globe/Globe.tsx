@@ -19,20 +19,21 @@ const Globe = () => {
     renderer.setSize(window.innerWidth, window.innerHeight);
     mountRef.current.appendChild(renderer.domElement);
 
-    // Create globe
+    // Create Earth
     const geometry = new THREE.SphereGeometry(5, 32, 32);
-    const material = new THREE.MeshPhongMaterial({
-      color: 0x2194ce,
-      shininess: 30,
+    const material = new THREE.MeshBasicMaterial({
+      color: 0x2b3a67,
+      wireframe: true,
     });
-    
-    const globe = new THREE.Mesh(geometry, material);
-    scene.add(globe);
+    const earth = new THREE.Mesh(geometry, material);
+    scene.add(earth);
 
-    // Add wonder markers
-    wonders.forEach(wonder => {
+    // Add markers for wonders
+    wonders.forEach((wonder) => {
       const markerGeometry = new THREE.SphereGeometry(0.1, 16, 16);
-      const markerMaterial = new THREE.MeshBasicMaterial({ color: 0xff0000 });
+      const markerMaterial = new THREE.MeshBasicMaterial({
+        color: 0xff0000,
+      });
       const marker = new THREE.Mesh(markerGeometry, markerMaterial);
       
       // Convert coordinates to 3D position
@@ -47,15 +48,7 @@ const Globe = () => {
       scene.add(marker);
     });
 
-    // Add lights
-    const ambientLight = new THREE.AmbientLight(0xffffff, 0.5);
-    scene.add(ambientLight);
-    
-    const pointLight = new THREE.PointLight(0xffffff, 1);
-    pointLight.position.set(10, 10, 10);
-    scene.add(pointLight);
-
-    // Camera position
+    // Position camera
     camera.position.z = 15;
 
     // Add controls
@@ -64,17 +57,17 @@ const Globe = () => {
     controls.dampingFactor = 0.05;
     controls.rotateSpeed = 0.5;
 
-    // Animation loop
+    // Animation
     const animate = () => {
       requestAnimationFrame(animate);
-      globe.rotation.y += 0.001;
+      earth.rotation.y += 0.002;
       controls.update();
       renderer.render(scene, camera);
     };
 
     animate();
 
-    // Handle resize
+    // Handle window resize
     const handleResize = () => {
       camera.aspect = window.innerWidth / window.innerHeight;
       camera.updateProjectionMatrix();
