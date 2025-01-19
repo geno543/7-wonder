@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState } from 'react';
 import * as THREE from 'three';
-import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
+import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
 import { gsap } from 'gsap';
 
 interface WonderLocation {
@@ -51,8 +51,8 @@ const WONDERS: WonderLocation[] = [
 
 const InteractiveGlobe = () => {
   const containerRef = useRef<HTMLDivElement>(null);
-  const globeRef = useRef<THREE.Group>();
-  const markersRef = useRef<THREE.Group>();
+  const globeRef = useRef<THREE.Group | undefined>();
+  const markersRef = useRef<THREE.Group>(new THREE.Group());
   const tooltipRef = useRef<HTMLDivElement>(null);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
@@ -199,7 +199,6 @@ const InteractiveGlobe = () => {
       scene.add(topLight);
 
       // Add markers for each wonder
-      markersRef.current = new THREE.Group();
       WONDERS.forEach((wonder) => {
         const markerGroup = new THREE.Group();
         
