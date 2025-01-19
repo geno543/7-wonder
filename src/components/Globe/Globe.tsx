@@ -36,8 +36,8 @@ const Globe = () => {
       const marker = new THREE.Mesh(markerGeometry, markerMaterial);
       
       // Convert coordinates to 3D position
-      const lat = wonder.coordinates[0] * (Math.PI / 180);
-      const lon = -wonder.coordinates[1] * (Math.PI / 180);
+      const lat = wonder.coordinates.lat * (Math.PI / 180);
+      const lon = -wonder.coordinates.lng * (Math.PI / 180);
       const radius = 5.2;
       
       marker.position.x = radius * Math.cos(lat) * Math.cos(lon);
