@@ -19,25 +19,6 @@ An interactive 3D globe visualization of the Seven Wonders of the World built wi
 - **Styling**: [Tailwind CSS](https://tailwindcss.com/)
 - **Language**: [TypeScript](https://www.typescriptlang.org/)
 
-## Getting Started
-
-1. Clone the repository:
-```bash
-git clone https://github.com/geno543/7-wonder.git
-cd 7-wonder
-```
-
-2. Install dependencies:
-```bash
-npm install
-```
-
-3. Run the development server:
-```bash
-npm run dev
-```
-
-4. Open [http://localhost:3000](http://localhost:3000) in your browser.
 
 ## Project Structure
 
@@ -62,8 +43,5 @@ npm run dev
 
 ## Deployment
 
-The project is deployed on [Vercel](https://vercel.com). Any push to the `master` branch will trigger an automatic deployment.
+The project is deployed on [Vercel](https://7-wonder-iwul9tztz-geno543s-projects.vercel.app/). Any push to the `master` branch will trigger an automatic deployment.
 
-## License
-
-MIT License - feel free to use this project for your own learning or as a base for your own 3D globe visualization.
