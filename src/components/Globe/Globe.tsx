@@ -2,7 +2,7 @@
 
 import { useEffect, useRef } from 'react';
 import * as THREE from 'three';
-import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
+import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
 import { wonders } from '@/data/wonders';
 
 const Globe = () => {
@@ -59,7 +59,7 @@ const Globe = () => {
     camera.position.z = 15;
 
     // Add controls
-    const controls = new THREE.OrbitControls(camera, renderer.domElement);
+    const controls = new OrbitControls(camera, renderer.domElement);
     controls.enableDamping = true;
     controls.dampingFactor = 0.05;
     controls.rotateSpeed = 0.5;
